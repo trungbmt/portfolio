@@ -108,15 +108,19 @@ export default function WorkModal({ project, t, onClose }: WorkModalProps) {
           </div>
 
           <div className="mt-7 flex gap-3.5 flex-wrap">
-            <a
-              href="#top"
-              className="bg-text text-invert no-underline rounded-full px-[26px] py-[13px] font-semibold text-[15px]"
-            >
-              {t.mVisit}
-            </a>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener"
+                className="bg-text text-invert no-underline rounded-full px-[26px] py-2 font-semibold text-[15px]"
+              >
+                {t.mVisit}
+              </a>
+            )}
             <button
               onClick={onClose}
-              className="bg-transparent border border-line text-text rounded-full px-[26px] py-[13px] font-semibold text-[15px] cursor-pointer"
+              className="bg-transparent border border-line text-text rounded-full px-[26px] py-2 font-semibold text-[15px] cursor-pointer"
             >
               {t.mClose}
             </button>

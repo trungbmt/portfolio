@@ -205,6 +205,7 @@ interface ProjectRaw {
   role: LocalizedText;
   year: LocalizedText;
   tagline: LocalizedText;
+  liveUrl?: string;
   sections: Record<Lang, ProjectSection[]>;
   highlights?: Record<Lang, ProjectHighlight[]>;
   metrics: Record<Lang, ProjectMetric[]>;
@@ -221,6 +222,7 @@ export interface Project {
   role: string;
   year: string;
   tagline: string;
+  liveUrl: string | null;
   sections: ProjectSection[];
   metrics: ProjectMetric[];
   highlights: ProjectHighlight[] | null;
@@ -242,6 +244,7 @@ const PROJECTS_RAW: ProjectRaw[] = [
       en: "The link attribution & behavior analytics platform I work on full-stack — from data layer to UI.",
       vi: "Nền tảng quy kết liên kết & phân tích hành vi tôi làm full-stack — từ tầng dữ liệu đến giao diện.",
     },
+    liveUrl: "https://li2.ai",
     sections: {
       en: [
         {
@@ -437,6 +440,7 @@ export function getProjects(lang: Lang): Project[] {
     role: p.role[lang],
     year: p.year[lang],
     tagline: p.tagline[lang],
+    liveUrl: p.liveUrl ?? null,
     sections: p.sections[lang],
     metrics: p.metrics[lang],
     highlights: p.highlights ? p.highlights[lang] : null,
