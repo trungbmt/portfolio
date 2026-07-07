@@ -99,8 +99,8 @@ export default function WorkModal({ project, t, onClose }: WorkModalProps) {
           )}
 
           <div className="bg-bg2 border border-line rounded-2xl p-[22px] grid grid-cols-3 gap-[18px] mt-1.5">
-            {project.metrics.map((m) => (
-              <div key={m.label}>
+            {project.metrics.map((m, i) => (
+              <div key={i}>
                 <div className="font-serif text-[30px] text-accent leading-none">{m.value}</div>
                 <div className="text-[13.5px] text-muted mt-1.5 leading-[1.4]">{m.label}</div>
               </div>

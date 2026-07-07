@@ -198,7 +198,6 @@ interface ProjectRaw {
   id: string;
   cat: string;
   cover: string;
-  placeholder?: boolean;
   name: string;
   stackTop: string[];
   stackLine: string;
@@ -215,7 +214,6 @@ export interface Project {
   id: string;
   cat: string;
   cover: string;
-  placeholder: boolean;
   name: string;
   stackTop: string[];
   stackLine: string;
@@ -315,39 +313,56 @@ const PROJECTS_RAW: ProjectRaw[] = [
     id: "proj2",
     cat: "Web App",
     cover: "linear-gradient(135deg,#E8A24A,#C97B2C)",
-    placeholder: true,
-    name: "Project Two",
-    stackTop: ["React", "Node.js", "…"],
-    stackLine: "Your stack",
+    name: "Business Report App",
+    stackTop: ["NestJS", "React", "MongoDB"],
+    stackLine: "NestJS · React · MongoDB",
     tag: { en: "02 · WEB APP", vi: "02 · ỨNG DỤNG WEB" },
     role: { en: "Full-stack developer", vi: "Lập trình viên full-stack" },
-    year: { en: "Year", vi: "Năm" },
+    year: { en: "2023 — 2024", vi: "2023 — 2024" },
     tagline: {
-      en: "Your second project — tell me what it is and I’ll write up a full case study here.",
-      vi: "Dự án thứ hai của bạn — cho tôi biết đó là gì, tôi sẽ viết một case study đầy đủ ở đây.",
+      en: "An Excel-like reporting platform for business data — spreadsheet grids, manual entry, and configurable dashboards.",
+      vi: "Nền tảng báo cáo kiểu Excel cho dữ liệu doanh nghiệp — bảng tính, nhập liệu thủ công và dashboard tuỳ chỉnh.",
     },
     sections: {
       en: [
-        { label: "Overview", body: "Placeholder. Share the project name, what it does, who it’s for, and your role — I’ll replace this with a real overview." },
-        { label: "Challenges", body: "Placeholder. What was hard or interesting about building it?" },
-        { label: "Approach", body: "Placeholder. How did you build it, and what was the result?" },
+        {
+          label: "Overview",
+          body: "An Excel-like reporting workspace for business data — spreadsheet-style grids, manual data entry, external data sources, and internal setup forms, built for teams that think in spreadsheets but need something more structured.",
+        },
+        {
+          label: "My role",
+          body: "I built the app full-stack with NestJS and React, and created a reusable Ant Design component library — tables, cells, inputs — that powers the grid UI across the whole product.",
+        },
+        {
+          label: "Approach",
+          body: "The hardest part was making a spreadsheet-like grid feel native in the browser while staying fast with real data. I shipped a dynamic statistics module with configurable charts and tables, plus middleware for per-project permissions.",
+        },
       ],
       vi: [
-        { label: "Tổng quan", body: "Nội dung mẫu. Hãy cho biết tên dự án, nó làm gì, dành cho ai và vai trò của bạn — tôi sẽ thay bằng phần mô tả thật." },
-        { label: "Thách thức", body: "Nội dung mẫu. Điều gì khó hoặc thú vị khi xây dựng nó?" },
-        { label: "Cách tiếp cận", body: "Nội dung mẫu. Bạn đã xây dựng thế nào và kết quả ra sao?" },
+        {
+          label: "Tổng quan",
+          body: "Một không gian báo cáo kiểu Excel cho dữ liệu doanh nghiệp — bảng tính, nhập liệu thủ công, nguồn dữ liệu ngoài và các form cấu hình nội bộ, dành cho các đội quen làm việc với spreadsheet nhưng cần thứ gì đó có cấu trúc hơn.",
+        },
+        {
+          label: "Vai trò của tôi",
+          body: "Tôi xây dựng ứng dụng full-stack với NestJS và React, và tạo một thư viện component Ant Design dùng lại được — bảng, ô, input — chạy xuyên suốt phần UI dạng lưới của cả sản phẩm.",
+        },
+        {
+          label: "Cách tiếp cận",
+          body: "Phần khó nhất là làm cho một lưới kiểu spreadsheet cảm giác tự nhiên trên trình duyệt mà vẫn nhanh với dữ liệu thật. Tôi xây một module thống kê động với biểu đồ và bảng tuỳ chỉnh, cùng middleware phân quyền theo từng dự án.",
+        },
       ],
     },
     metrics: {
       en: [
-        { value: "—", label: "Add a key result" },
-        { value: "—", label: "Add a key result" },
-        { value: "—", label: "Add a key result" },
+        { value: "Excel-like", label: "Spreadsheet grids & manual entry" },
+        { value: "Reusable UI kit", label: "Ant Design component library" },
+        { value: "Configurable", label: "Dynamic stats, charts & tables" },
       ],
       vi: [
-        { value: "—", label: "Thêm một kết quả nổi bật" },
-        { value: "—", label: "Thêm một kết quả nổi bật" },
-        { value: "—", label: "Thêm một kết quả nổi bật" },
+        { value: "Kiểu Excel", label: "Bảng tính & nhập liệu thủ công" },
+        { value: "Bộ UI dùng lại", label: "Thư viện component Ant Design" },
+        { value: "Tuỳ chỉnh", label: "Thống kê, biểu đồ & bảng động" },
       ],
     },
   },
@@ -355,39 +370,56 @@ const PROJECTS_RAW: ProjectRaw[] = [
     id: "proj3",
     cat: "Web App",
     cover: "linear-gradient(135deg,#D8A98C,#9A6A4E)",
-    placeholder: true,
-    name: "Project Three",
-    stackTop: ["React", "Node.js", "…"],
-    stackLine: "Your stack",
+    name: "168 LiveChat",
+    stackTop: ["Node.js", "Socket.IO", "React"],
+    stackLine: "Node.js · Socket.IO · React",
     tag: { en: "03 · WEB APP", vi: "03 · ỨNG DỤNG WEB" },
     role: { en: "Full-stack developer", vi: "Lập trình viên full-stack" },
-    year: { en: "Year", vi: "Năm" },
+    year: { en: "2022 — 2023", vi: "2022 — 2023" },
     tagline: {
-      en: "Your third project — same idea: send me the details and this becomes a real case study.",
-      vi: "Dự án thứ ba của bạn — tương tự: gửi chi tiết và phần này sẽ thành case study thật.",
+      en: "An embeddable real-time chat widget for customer websites, backed by microservices.",
+      vi: "Widget chat trực tiếp có thể nhúng cho website khách hàng, vận hành bởi các microservice.",
     },
     sections: {
       en: [
-        { label: "Overview", body: "Placeholder. Share the project name, what it does, who it’s for, and your role — I’ll replace this with a real overview." },
-        { label: "Challenges", body: "Placeholder. What was hard or interesting about building it?" },
-        { label: "Approach", body: "Placeholder. How did you build it, and what was the result?" },
+        {
+          label: "Overview",
+          body: "168 LiveChat is an embeddable real-time chat widget that businesses drop into their own websites to talk to visitors live.",
+        },
+        {
+          label: "My role",
+          body: "I built the widget and the real-time messaging layer with Socket.IO, and developed microservices that handle account plans separately so the main server stays fast under load.",
+        },
+        {
+          label: "Approach",
+          body: "Real-time chat at scale comes down to isolating the hot path. I kept the widget itself lightweight, moved account/plan logic into its own service, and used RabbitMQ to keep everything decoupled and resilient.",
+        },
       ],
       vi: [
-        { label: "Tổng quan", body: "Nội dung mẫu. Hãy cho biết tên dự án, nó làm gì, dành cho ai và vai trò của bạn — tôi sẽ thay bằng phần mô tả thật." },
-        { label: "Thách thức", body: "Nội dung mẫu. Điều gì khó hoặc thú vị khi xây dựng nó?" },
-        { label: "Cách tiếp cận", body: "Nội dung mẫu. Bạn đã xây dựng thế nào và kết quả ra sao?" },
+        {
+          label: "Tổng quan",
+          body: "168 LiveChat là widget chat trực tiếp có thể nhúng, giúp doanh nghiệp trò chuyện trực tiếp với khách truy cập ngay trên website của họ.",
+        },
+        {
+          label: "Vai trò của tôi",
+          body: "Tôi xây dựng widget và tầng nhắn tin thời gian thực bằng Socket.IO, đồng thời phát triển các microservice xử lý gói tài khoản riêng để server chính luôn nhanh dưới tải lớn.",
+        },
+        {
+          label: "Cách tiếp cận",
+          body: "Chat thời gian thực ở quy mô lớn nằm ở việc tách được đường xử lý nóng. Tôi giữ widget thật nhẹ, chuyển logic tài khoản/gói dịch vụ sang service riêng, và dùng RabbitMQ để mọi thứ tách rời và bền vững.",
+        },
       ],
     },
     metrics: {
       en: [
-        { value: "—", label: "Add a key result" },
-        { value: "—", label: "Add a key result" },
-        { value: "—", label: "Add a key result" },
+        { value: "Real-time", label: "Socket.IO powered chat widget" },
+        { value: "Embeddable", label: "Drop-in widget for any website" },
+        { value: "Microservices", label: "Account plans offloaded from main server" },
       ],
       vi: [
-        { value: "—", label: "Thêm một kết quả nổi bật" },
-        { value: "—", label: "Thêm một kết quả nổi bật" },
-        { value: "—", label: "Thêm một kết quả nổi bật" },
+        { value: "Thời gian thực", label: "Widget chat chạy trên Socket.IO" },
+        { value: "Nhúng được", label: "Widget cắm vào mọi website" },
+        { value: "Microservice", label: "Tách gói tài khoản khỏi server chính" },
       ],
     },
   },
@@ -398,7 +430,6 @@ export function getProjects(lang: Lang): Project[] {
     id: p.id,
     cat: p.cat,
     cover: p.cover,
-    placeholder: !!p.placeholder,
     name: p.name,
     stackTop: p.stackTop,
     stackLine: p.stackLine,
