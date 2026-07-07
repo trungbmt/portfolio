@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Pham Duc Trung
 
-## Getting Started
+Personal portfolio site: hero, about, selected work (with case-study modal), skills, experience, education, writing (with article reader), and contact. Supports English/Vietnamese and light/dark theme.
 
-First, run the development server:
+**Live:** [trungpd.space](https://trungpd.space)
+
+## Stack
+
+- [Next.js](https://nextjs.org) (App Router) + TypeScript
+- [Bun](https://bun.sh) — package manager & runtime
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Framer Motion](https://www.framer.com/motion/) for animations
+- [`@li2/analytics`](https://www.npmjs.com/package/@li2/analytics) for tracking, wired up via a provider in the root layout
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Content (EN/VI copy, projects, skills, experience, education, writing posts) lives in [`src/lib/content.ts`](src/lib/content.ts). UI is split into components under [`src/components/portfolio/`](src/components/portfolio).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+### Cloudflare Workers (current production target)
 
-To learn more about Next.js, take a look at the following resources:
+Deployed via the [OpenNext](https://opennext.js.org/cloudflare) adapter.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx wrangler login   # one-time auth
+npm run preview       # build + serve locally via a local Workers runtime
+npm run deploy        # build + deploy to Cloudflare
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Config: [`wrangler.jsonc`](wrangler.jsonc), [`open-next.config.ts`](open-next.config.ts). Custom domain (`trungpd.space` + `www`) is configured in `wrangler.jsonc`'s `routes` field — the domain must be an active zone on Cloudflare with nameservers pointed there before deploy can attach it.
 
-## Deploy on Vercel
+**Note:** Wrangler requires Node.js v22+ and does not run under Bun — use `npm`/`npx` (not `bun`/`bunx`) for anything invoking Wrangler.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Docker Compose (self-hosting alternative)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+docker compose up --build
+```
+
+Builds a standalone Next.js server image (Bun-based) and serves it on port 3000.
