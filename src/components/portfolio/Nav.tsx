@@ -92,6 +92,7 @@ export default function Nav({ t, lang, onSetLang, dark, onToggleTheme }: NavProp
 
         {/* Mobile controls */}
         <div className="flex md:hidden items-center gap-2">
+          {langSwitch}
           {themeToggle}
           <button
             onClick={() => setMenuOpen((o) => !o)}
@@ -125,16 +126,13 @@ export default function Nav({ t, lang, onSetLang, dark, onToggleTheme }: NavProp
                   {label}
                 </a>
               ))}
-              <div className="flex items-center gap-3 mt-2">
-                {langSwitch}
-                <a
-                  href="#contact"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex-1 text-center bg-text text-invert no-underline text-[14.5px] font-semibold px-5 py-2.5 rounded-full whitespace-nowrap"
-                >
-                  {t.navEmail}
-                </a>
-              </div>
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="text-center bg-text text-invert no-underline text-[14.5px] font-semibold px-5 py-2.5 rounded-full whitespace-nowrap mt-2"
+              >
+                {t.navEmail}
+              </a>
             </div>
           </motion.div>
         )}
