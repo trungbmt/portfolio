@@ -45,7 +45,9 @@ export default function Contact({ t }: { t: Strings }) {
             LinkedIn
           </a>
           <a
-            href="#top"
+            href="/resume"
+            target="_blank"
+            rel="noopener"
             className="no-underline pb-0.5 text-[color-mix(in_srgb,var(--invert)_72%,transparent)] border-b border-[color-mix(in_srgb,var(--invert)_40%,transparent)]"
           >
             {t.resume}
