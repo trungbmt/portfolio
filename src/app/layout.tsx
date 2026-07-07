@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Newsreader, Hanken_Grotesk, Space_Mono } from "next/font/google";
-import { AnalyticsProvider } from "@/components/analytics-provider";
+import Script from "next/script";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -39,7 +39,11 @@ export default function RootLayout({
       className={`${newsreader.variable} ${hankenGrotesk.variable} ${spaceMono.variable}`}
     >
       <body>
-        <AnalyticsProvider>{children}</AnalyticsProvider>
+        {children}
+        <Script
+          src="https://cdn.li2.ai/99c77832_f1f24eb488e15653a7f706fe276dfe53"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
