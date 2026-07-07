@@ -21,10 +21,9 @@ export default function Writing({ t, posts, onOpen }: WritingProps) {
             <button
               key={post.id}
               onClick={() => onOpen(post.id)}
-              className="text-left grid gap-6 items-start px-2 py-[26px] border-t border-line cursor-pointer transition-[padding,background-color] duration-200 hover:px-[18px] hover:bg-bg2"
-              style={{ gridTemplateColumns: "120px 1fr auto" }}
+              className="text-left grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-3 sm:gap-6 items-start px-2 py-[26px] border-t border-line cursor-pointer transition-[padding,background-color] duration-200 sm:hover:px-[18px] hover:bg-bg2"
             >
-              <div className="flex flex-col gap-2.5">
+              <div className="flex flex-row sm:flex-col items-center sm:items-start gap-2.5">
                 <span className="font-mono text-[12.5px] text-muted">{post.date}</span>
                 <span className="font-mono text-[10.5px] tracking-[0.08em] uppercase text-accent2 border border-line rounded-md px-[7px] py-[3px] self-start">
                   {post.tag}
@@ -34,11 +33,11 @@ export default function Writing({ t, posts, onOpen }: WritingProps) {
                 <span className="font-serif text-[clamp(19px,2.4vw,25px)] leading-[1.3] block">
                   {post.title}
                 </span>
-                <p className="text-[14.5px] leading-[1.55] text-muted mt-2 mb-0 max-w-[580px]">
+                <p className="text-[14.5px] leading-[1.55] text-muted mt-2 mb-0 sm:max-w-[580px]">
                   {post.excerpt}
                 </p>
               </div>
-              <span className="text-[13px] text-muted flex items-center gap-3.5 whitespace-nowrap pt-1">
+              <span className="text-[13px] text-muted flex items-center gap-3.5 whitespace-nowrap sm:pt-1">
                 {post.read} <span className="text-accent text-lg">→</span>
               </span>
             </button>
