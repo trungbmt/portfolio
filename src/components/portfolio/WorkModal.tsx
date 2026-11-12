@@ -30,21 +30,31 @@ export default function WorkModal({ project, t, onClose }: WorkModalProps) {
         style={{ maxWidth: 820 }}
       >
         <div
-          className="h-[200px] relative flex items-end p-[26px]"
-          style={{ background: project.cover }}
+          className="h-[210px] relative flex items-end p-[26px] overflow-hidden"
+          style={{ background: project.coverImage ? "#1c1917" : project.cover }}
         >
+          {project.coverImage && (
+            <>
+              <img
+                src={project.coverImage}
+                alt={project.name}
+                className="absolute inset-0 w-full h-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+            </>
+          )}
           <button
             onClick={onClose}
-            className="absolute top-[18px] right-[18px] w-[38px] h-[38px] rounded-full border-none bg-black/25 text-white text-lg cursor-pointer flex items-center justify-center"
+            className="absolute top-[18px] right-[18px] w-[38px] h-[38px] rounded-full border-none bg-black/40 text-white text-lg cursor-pointer flex items-center justify-center z-10 backdrop-blur-sm"
           >
             ✕
           </button>
-          <span className="font-mono text-[11.5px] tracking-[0.1em] text-white/85 absolute top-6 left-[26px]">
+          <span className="font-mono text-[11.5px] tracking-[0.1em] text-white/90 absolute top-6 left-[26px] z-10 drop-shadow-sm">
             {project.tag}
           </span>
-          <div>
-            <div className="font-serif text-[44px] text-[#FFFCF6] leading-none">{project.name}</div>
-            <div className="text-[15px] text-white/90 mt-1.5">{project.tagline}</div>
+          <div className="relative z-10">
+            <div className="font-serif text-[44px] text-[#FFFCF6] leading-none drop-shadow-sm">{project.name}</div>
+            <div className="text-[15px] text-white/95 mt-1.5 drop-shadow-sm">{project.tagline}</div>
           </div>
         </div>
         <div className="p-[clamp(24px,4vw,40px)]">
@@ -108,6 +118,14 @@ export default function WorkModal({ project, t, onClose }: WorkModalProps) {
           </div>
 
           <div className="mt-7 flex gap-3.5 flex-wrap">
+            {project.id === "li2" && (
+              <a
+                href="/work/li2"
+                className="bg-accent text-white no-underline rounded-full px-[26px] py-2 font-semibold text-[15px] flex items-center gap-1.5 hover:opacity-90 transition-opacity shadow-sm"
+              >
+                Khám phá Kiến trúc Hệ thống ↗
+              </a>
+            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}

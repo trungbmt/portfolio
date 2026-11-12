@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Newsreader, Hanken_Grotesk, Space_Mono } from "next/font/google";
 import Script from "next/script";
+import CartFab from "@/components/CartFab";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -40,6 +41,7 @@ export default function RootLayout({
     >
       <body>
         {children}
+        <CartFab />
         <Script
           src="https://cdn.li2.ai/99c77832_f1f24eb488e15653a7f706fe276dfe53"
           strategy="afterInteractive"

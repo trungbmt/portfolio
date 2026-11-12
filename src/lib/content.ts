@@ -1,5 +1,10 @@
 export type Lang = "en" | "vi";
 
+export const LANG_STORAGE_KEY = "pdt-lang";
+export const LANG_CHANGE_EVENT = "pdt-lang-change";
+export const THEME_STORAGE_KEY = "pdt-theme";
+export const THEME_CHANGE_EVENT = "pdt-theme-change";
+
 export interface Strings {
   navWork: string;
   navAbout: string;
@@ -198,6 +203,7 @@ interface ProjectRaw {
   id: string;
   cat: string;
   cover: string;
+  coverImage?: string;
   name: string;
   stackTop: string[];
   stackLine: string;
@@ -215,6 +221,7 @@ export interface Project {
   id: string;
   cat: string;
   cover: string;
+  coverImage?: string | null;
   name: string;
   stackTop: string[];
   stackLine: string;
@@ -234,6 +241,7 @@ const PROJECTS_RAW: ProjectRaw[] = [
     id: "li2",
     cat: "Platform",
     cover: "linear-gradient(135deg,#E0623B,#C2410C)",
+    coverImage: "/images/li2-dashboard.png",
     name: "Li2.ai",
     stackTop: ["React", "Node.js", "ClickHouse"],
     stackLine: "React · Node · ClickHouse",
@@ -433,6 +441,7 @@ export function getProjects(lang: Lang): Project[] {
     id: p.id,
     cat: p.cat,
     cover: p.cover,
+    coverImage: p.coverImage ?? null,
     name: p.name,
     stackTop: p.stackTop,
     stackLine: p.stackLine,
@@ -496,6 +505,13 @@ export function getExperience(lang: Lang): ExperienceItem[] {
           company: "Cong Nghe Van Thong JSC",
           desc: "Built and maintained web applications end to end, working across the front-end and back-end on production features for the team.",
         },
+        {
+          years: "01/2021 — 04/2021",
+          role: "Software Developer · Fresher",
+          note: "",
+          company: "Software Outsourcing Studio",
+          desc: "Built an automated Viber ChatBot system with auto-ordering and custom notification workflows, developing backend API services and webhook handlers with Python (Flask) and MongoDB.",
+        },
       ]
     : [
         {
@@ -518,6 +534,13 @@ export function getExperience(lang: Lang): ExperienceItem[] {
           note: "(Remote)",
           company: "Công ty CP Công nghệ Vạn Thông",
           desc: "Xây dựng và bảo trì các ứng dụng web từ đầu đến cuối, làm việc trên cả front-end lẫn back-end cho các tính năng chạy thực tế của đội.",
+        },
+        {
+          years: "01/2021 — 04/2021",
+          role: "Lập trình viên phần mềm · Fresher",
+          note: "",
+          company: "Software Outsourcing Studio",
+          desc: "Xây dựng hệ thống Viber ChatBot tự động hóa quy trình đặt hàng và thông báo, phát triển các dịch vụ backend API và webhook xử lý bằng Python (Flask) và MongoDB.",
         },
       ];
 }
@@ -762,4 +785,80 @@ const POSTS: Record<Lang, Post[]> = {
 
 export function getPosts(lang: Lang): Post[] {
   return POSTS[lang];
+}
+
+export interface CartStrings {
+  addToCart: string;
+  checkout: string;
+}
+
+const CART_STR: Record<Lang, CartStrings> = {
+  en: { addToCart: "Add to cart", checkout: "Checkout (1)" },
+  vi: { addToCart: "Thêm vào giỏ", checkout: "Thanh toán (1)" },
+};
+
+export function getCartStrings(lang: Lang): CartStrings {
+  return CART_STR[lang];
+}
+
+export interface CheckoutStrings {
+  continueShopping: string;
+  inCart: string;
+  productTitle: string;
+  rating: string;
+  priceOld: string;
+  priceNew: string;
+  features: string[];
+  noteLabel: string;
+  defaultNote: string;
+  confirmButton: string;
+  emailButton: string;
+  emailSubject: string;
+}
+
+const CHECKOUT_STR: Record<Lang, CheckoutStrings> = {
+  en: {
+    continueShopping: "← Continue shopping",
+    inCart: "In your cart · 1 item",
+    productTitle: "Pham Duc Trung — Full-Stack Developer",
+    rating: "★★★★★ (3+ years, ships fast)",
+    priceOld: "$999,999/mo",
+    priceNew: "Negotiable",
+    features: [
+      "Full-stack: database, API, UI, and DevOps — all included",
+      "Ships fast, reliable, and (usually) bug-free",
+      "3+ years of real production use, zero returns",
+      "Batteries (and coffee) included",
+    ],
+    noteLabel: "Note to seller (optional, but let's be honest, required)",
+    defaultNote:
+      "Hi Trung,\n\nI'd like to add you to my team. Here's my offer:\n\nRole:\nBudget:\nStart date:\n\nLet's talk!",
+    confirmButton: "Confirm order",
+    emailButton: "📧 Send email to trungpd.workspace@gmail.com",
+    emailSubject: "Checkout: Hiring Pham Duc Trung 🛒",
+  },
+  vi: {
+    continueShopping: "← Tiếp tục xem",
+    inCart: "Trong giỏ hàng · 1 sản phẩm",
+    productTitle: "Phạm Đức Trung — Lập trình viên Full-Stack",
+    rating: "★★★★★ (hơn 3 năm kinh nghiệm, giao hàng nhanh)",
+    priceOld: "999.999.000đ/tháng",
+    priceNew: "Thương lượng",
+    features: [
+      "Full-stack: cơ sở dữ liệu, API, giao diện và DevOps — trọn gói",
+      "Giao nhanh, ổn định, và (thường thì) không có bug",
+      "Hơn 3 năm sử dụng thực tế, chưa từng bị trả hàng",
+      "Đã bao gồm pin (và cà phê)",
+    ],
+    noteLabel: "Lời nhắn cho người bán (không bắt buộc, nhưng thật lòng thì nên có)",
+    defaultNote:
+      "Chào Trung,\n\nMình muốn mời bạn về đội. Đây là đề nghị của mình:\n\nVị trí:\nNgân sách:\nNgày bắt đầu:\n\nCùng trao đổi nhé!",
+    confirmButton: "Xác nhận đơn hàng",
+    emailButton: "📧 Gửi email tới trungpd.workspace@gmail.com",
+    emailSubject: "Đơn hàng: Tuyển Phạm Đức Trung 🛒",
+  },
+};
+
+export function getCheckoutStrings(lang: Lang): CheckoutStrings {
+  return CHECKOUT_STR[lang];
 }

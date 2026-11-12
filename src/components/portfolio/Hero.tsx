@@ -57,14 +57,14 @@ export default function Hero({ t }: { t: Strings }) {
           <span className="font-mono text-[11px] tracking-[0.12em] text-[#7A4A30] absolute top-5 left-6">
             [ {t.portrait} ]
           </span>
-          <div className="relative w-full max-w-[160px] aspect-[4/5]">
+          <div className="relative w-full max-w-[210px] aspect-[2/3]">
             <Image
               src="/headshot.jpg"
               alt="Pham Duc Trung"
               fill
               priority
-              sizes="160px"
-              className="object-contain rounded-[12px] shadow-[0_14px_28px_-12px_rgba(0,0,0,0.45)]"
+              sizes="(max-width: 768px) 180px, 220px"
+              className="object-cover rounded-[14px] shadow-[0_18px_36px_-12px_rgba(0,0,0,0.45)]"
             />
           </div>
         </motion.div>

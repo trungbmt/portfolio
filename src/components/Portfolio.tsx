@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import {
   type Lang,
+  LANG_STORAGE_KEY,
+  LANG_CHANGE_EVENT,
+  THEME_STORAGE_KEY,
+  THEME_CHANGE_EVENT,
   getStrings,
   getAboutFacts,
   getProjects,
@@ -27,7 +31,7 @@ import Footer from "@/components/portfolio/Footer";
 
 export default function Portfolio() {
   const [dark, setDark] = useState(true);
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLangState] = useState<Lang>("en");
   const [filter, setFilter] = useState<CatFilter>("All");
   const [openId, setOpenId] = useState<string | null>(null);
   const [openPostId, setOpenPostId] = useState<string | null>(null);
@@ -35,6 +39,56 @@ export default function Portfolio() {
   useEffect(() => {
     document.body.style.overflow = openId || openPostId ? "hidden" : "";
   }, [openId, openPostId]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(LANG_STORAGE_KEY);
+    if (saved === "en" || saved === "vi") setLangState(saved);
+
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (savedTheme === "light") {
+      setDark(false);
+    } else if (savedTheme === "dark") {
+      setDark(true);
+    }
+
+    const handleThemeEvent = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      if (customEvent.detail === "light") setDark(false);
+      else if (customEvent.detail === "dark") setDark(true);
+    };
+
+    const handleLangEvent = (e: Event) => {
+      const customEvent = e as CustomEvent<Lang>;
+      if (customEvent.detail === "en" || customEvent.detail === "vi") {
+        setLangState(customEvent.detail);
+      }
+    };
+
+    window.addEventListener(THEME_CHANGE_EVENT, handleThemeEvent);
+    window.addEventListener(LANG_CHANGE_EVENT, handleLangEvent);
+
+    return () => {
+      window.removeEventListener(THEME_CHANGE_EVENT, handleThemeEvent);
+      window.removeEventListener(LANG_CHANGE_EVENT, handleLangEvent);
+    };
+  }, []);
+
+  function toggleTheme() {
+    setDark((prev) => {
+      const next = !prev;
+      localStorage.setItem(THEME_STORAGE_KEY, next ? "dark" : "light");
+      window.dispatchEvent(
+        new CustomEvent(THEME_CHANGE_EVENT, { detail: next ? "dark" : "light" })
+      );
+      return next;
+    });
+  }
+
+  function setLang(next: Lang) {
+    setLangState(next);
+    localStorage.setItem(LANG_STORAGE_KEY, next);
+    window.dispatchEvent(new CustomEvent(LANG_CHANGE_EVENT, { detail: next }));
+  }
 
   const t = getStrings(lang);
   const aboutFacts = getAboutFacts(lang);
@@ -67,7 +121,7 @@ export default function Portfolio() {
         lang={lang}
         onSetLang={setLang}
         dark={dark}
-        onToggleTheme={() => setDark((d) => !d)}
+        onToggleTheme={toggleTheme}
       />
       <Hero t={t} />
       <About t={t} facts={aboutFacts} />
