@@ -26,6 +26,10 @@ import {
   Scan,
   Maximize2,
   ExternalLink,
+  Link2,
+  Eye,
+  TrendingUp,
+  Compass,
 } from "lucide-react";
 
 // Types for all 11 system blocks
@@ -769,6 +773,270 @@ export default function Li2ArchitecturePage() {
             <span className="px-2.5 py-0.5 rounded-full bg-surface border border-line">PostgreSQL Partitioned</span>
           </div>
         </div>
+
+        {/* Core Product Capabilities Section */}
+        <section className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-line pb-4">
+            <div className="space-y-1.5">
+              <div className="inline-flex items-center gap-2 font-mono text-xs px-2.5 py-0.5 rounded-full border border-line bg-surface text-muted uppercase tracking-wider">
+                <Compass className="w-3.5 h-3.5 text-accent" />
+                <span>{lang === "vi" ? "Chức Năng Cốt Lõi" : "Core Platform Capabilities"}</span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl font-normal m-0 text-text">
+                {lang === "vi"
+                  ? "Nền Tảng Quản Lý Liên Kết & Phân Tích Hành Vi Chuyên Sâu"
+                  : "Enterprise Link Infrastructure & Behavioral Intelligence"}
+              </h2>
+            </div>
+            <p className="text-muted text-xs font-mono max-w-md m-0 leading-relaxed sm:text-right">
+              {lang === "vi"
+                ? "Kết hợp hạ tầng điều hướng siêu tốc, gắn thẻ không cần code và quy kết chuyển đổi đa kênh."
+                : "Combining sub-10ms routing, zero-code tracking overlays, and multi-touch revenue attribution."}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+            {/* 1. Smart Link & Dynamic QR */}
+            <div className="p-5 sm:p-6 rounded-3xl bg-surface border border-line hover:border-accent/40 transition-all flex flex-col justify-between space-y-4 group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500">
+                    <Link2 className="w-5 h-5" />
+                  </div>
+                  <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20">
+                    Traffic Orchestration
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-xl font-normal text-text m-0 group-hover:text-accent transition-colors">
+                    {lang === "vi" ? "Rút Gọn & Điều Hướng Thông Minh" : "Smart Link & Dynamic QR Engine"}
+                  </h3>
+                  <p className="text-muted text-xs leading-relaxed mt-1.5 m-0">
+                    {lang === "vi"
+                      ? "Điều phối lưu lượng truy cập tốc độ cao (<10ms) với tên miền riêng (Branded Custom Domain), cá nhân hóa hành trình theo thiết bị và định vị địa lý."
+                      : "Ultra-fast (<10ms) routing with custom branded domains, personalized visitor journeys, and dynamic QR management."}
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2 border-t border-line/60 font-sans text-xs text-text">
+                <div className="flex items-start gap-2">
+                  <span className="text-blue-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Rút gọn link siêu tốc kết hợp Branded Custom Domain tăng độ tin cậy và CTR"
+                      : "Sub-10ms short links with branded custom domains boosting brand trust & CTR"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-blue-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Smart Targeting: Phân nhánh URL theo hệ điều hành (iOS/Android) & Vị trí GeoIP"
+                      : "Smart Targeting: Dynamic routing branches by device OS & GeoIP country/region"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-blue-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Mã QR động tùy biến màu sắc, logo thương hiệu và cập nhật URL đích tức thì"
+                      : "Dynamic QR codes with custom styling, logos, and instantaneous URL redirects"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-blue-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "A/B Testing phân phối trang đích & mật khẩu bảo vệ liên kết nhạy cảm"
+                      : "Destination A/B testing & password protection for sensitive or internal links"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Visual Event Tagger */}
+            <div className="p-5 sm:p-6 rounded-3xl bg-surface border border-line hover:border-accent/40 transition-all flex flex-col justify-between space-y-4 group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
+                    <Scan className="w-5 h-5" />
+                  </div>
+                  <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                    Zero-Code Tracking
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-xl font-normal text-text m-0 group-hover:text-accent transition-colors">
+                    {lang === "vi" ? "In-Browser Visual Event Tagger" : "In-Browser Visual Event Tagger"}
+                  </h3>
+                  <p className="text-muted text-xs leading-relaxed mt-1.5 m-0">
+                    {lang === "vi"
+                      ? "Nhúng thanh Toolbar nổi trực tiếp trên website khách hàng qua URL token an toàn, cho phép marketer tự gắn thẻ đo lường chỉ với thao tác click."
+                      : "Secure in-browser floating overlay activated via URL token, empowering marketing teams to tag tracking rules visually without code."}
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2 border-t border-line/60 font-sans text-xs text-text">
+                <div className="flex items-start gap-2">
+                  <span className="text-emerald-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Kích hoạt an toàn qua URL token (?li2_tagger=true) được mã hóa theo phiên"
+                      : "Secure activation via encrypted session URL token (?li2_tagger=true)"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-emerald-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Tự động vẽ bounding box & tooltip định danh phần tử DOM khi rê chuột"
+                      : "Real-time DOM element hover highlight with selector tooltips & class hierarchy"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-emerald-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Gắn thẻ sự kiện Click, Điền form (Form Fill), Submit và Visibility trong 1 chạm"
+                      : "Single-click rule creation for Click, Form Fill/Submit, and Element Visibility"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-emerald-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Đồng bộ tức thì với Go API Gateway mà không cần chỉnh sửa mã nguồn trang web"
+                      : "Instant rule synchronization with Go API Gateway without codebase modifications"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. Behavior Analytics & Session Replay */}
+            <div className="p-5 sm:p-6 rounded-3xl bg-surface border border-line hover:border-accent/40 transition-all flex flex-col justify-between space-y-4 group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-500">
+                    <Eye className="w-5 h-5" />
+                  </div>
+                  <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-500 border border-indigo-500/20">
+                    UX & Telemetry
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-xl font-normal text-text m-0 group-hover:text-accent transition-colors">
+                    {lang === "vi" ? "Phân Tích Hành Vi & Session Replay" : "Behavior Analytics & Session Replay"}
+                  </h3>
+                  <p className="text-muted text-xs leading-relaxed mt-1.5 m-0">
+                    {lang === "vi"
+                      ? "Thấu hiểu trọn vẹn trải nghiệm người dùng từ bản đồ nhiệt tương tác (Heatmap) đến video tua lại từng thao tác chuột (Session Replay)."
+                      : "Holistic visibility into visitor interactions from click density heatmaps to full video session replays."}
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2 border-t border-line/60 font-sans text-xs text-text">
+                <div className="flex items-start gap-2">
+                  <span className="text-indigo-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Bản đồ nhiệt Click Map & Scroll Depth phủ trực quan trên layout website"
+                      : "Live Click Map & Scroll Depth heatmaps rendered directly over host websites"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-indigo-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Trình phát Session Replay tái hiện chính xác thao tác chuột và lỗi giao diện"
+                      : "High-fidelity Session Replay reconstructing cursor vectors and UI friction points"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-indigo-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Rage Click Detection: Nhận diện thao tác ức chế bằng thuật toán Sliding Window"
+                      : "Algorithmic Rage Click Detection flagging user frustration via sliding windows"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-indigo-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Báo cáo chuyển đổi phễu (Funnel drop-off) tối ưu hóa tỷ lệ hoàn tất đơn hàng"
+                      : "Visual funnel progression analytics pinpointing user drop-offs and checkout bottlenecks"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. Multi-Touch Conversion Attribution */}
+            <div className="p-5 sm:p-6 rounded-3xl bg-surface border border-line hover:border-accent/40 transition-all flex flex-col justify-between space-y-4 group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500">
+                    <TrendingUp className="w-5 h-5" />
+                  </div>
+                  <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-orange-500/10 text-orange-500 border border-orange-500/20">
+                    Revenue Attribution
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-xl font-normal text-text m-0 group-hover:text-accent transition-colors">
+                    {lang === "vi" ? "Quy Kết Chuyển Đổi & Doanh Thu" : "Multi-Touch Conversion Attribution"}
+                  </h3>
+                  <p className="text-muted text-xs leading-relaxed mt-1.5 m-0">
+                    {lang === "vi"
+                      ? "Đo lường chính xác hiệu quả từng đồng ngân sách marketing bằng thuật toán 3-Tier Attribution và nhận diện danh tính thiết bị 2 tầng."
+                      : "Accurate marketing ROI measurement powered by 3-Tier Attribution models and 2-Tier persistent device identity."}
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2 border-t border-line/60 font-sans text-xs text-text">
+                <div className="flex items-start gap-2">
+                  <span className="text-orange-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "2-Tier Composite Fingerprint: Nhận diện khách dù xóa cookie hay Safari ITP chặn"
+                      : "2-Tier Composite Fingerprint resolving identity across cookie purges and Safari ITP"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-orange-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Thuật toán 3-Tier: Liên kết doanh thu webhook (Shopify, Stripe) về touchpoint gốc"
+                      : "3-Tier Attribution: Linking e-commerce webhooks to original marketing touchpoints"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-orange-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Customer Journey Timeline: Trực quan hóa mọi điểm chạm trước khi mua hàng"
+                      : "Customer Journey Timeline mapping all touches before conversion"}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-orange-500 font-bold mt-0.5">•</span>
+                  <span>
+                    {lang === "vi"
+                      ? "Bộ đệm Redis & khóa phân tán chống trùng lặp doanh thu tuyệt đối (Idempotency)"
+                      : "Redis distributed locks eliminating duplicate conversion webhook records (Idempotency)"}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* High-Level System Architecture Diagram (Interactive Zoom & Pan SVG Board) */}
         <section className="bg-surface border border-line rounded-3xl p-4 sm:p-6 shadow-[0_30px_70px_-30px_var(--shadow)] relative overflow-hidden">
